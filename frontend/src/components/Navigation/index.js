@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import CreateListingModal from '../CreateListingModal'
+import SignupFormModal from '../SignupFormModal'
 import Demo from './Demo'
 import './Navigation.css';
 
@@ -20,12 +21,12 @@ function Navigation({ isLoaded }) {
         <ProfileButton user={sessionUser} />
       </>
     );
-  } else {
+  } else {  
     sessionLinks = (
       <>
         <Demo />
         <LoginFormModal />
-        <NavLink to="/signup"><button className="demobutton">Sign Up</button></NavLink>
+        <SignupFormModal/> 
       </>
     );
   }

@@ -17,7 +17,6 @@ const Listings  = () => {
 
   return (
     <div className={csss.spotsPage}>
-      <div className={csss.spotsDescription}>Viewing all</div> 
       <div className={csss.spotContainer}>
         {!!listings.length && listings.map((listing) => 
           <div key={listing.id} className={csss.spotCard}>
@@ -30,6 +29,9 @@ const Listings  = () => {
           </div>
         )}
       </div>
+      {/* <div>
+        {map}
+      </div> */} 
     </div>   
   )
 }
