@@ -1,6 +1,5 @@
 import { csrfFetch } from "./csrf";
   
-
 const SET_LISTINGS = 'listings/setListings'
 const ADD_LISTING = 'listings/addListing'
 const UPDATE_LISTING = 'listing/updateListing'
@@ -102,5 +101,4 @@ const listingsReducer = (state = initialState, action) => {
   }
 }
 
-// Export the reducer
 export default listingsReducer;  
