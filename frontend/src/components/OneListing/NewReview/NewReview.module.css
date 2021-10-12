@@ -1,0 +1,38 @@
+.reviewText {
+    margin-bottom: 2vh;
+  }
+  
+  .reviewForm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+    max-width: 60vh;
+    border: black; 
+    width: 60vh;
+  }
+  
+  .reviewFormButton {
+    height: 4vh;
+    width: 5vh; 
+
+    border: black;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .textareaComponents {
+    margin-bottom: 1vh;
+    border-radius: 10px;
+    height: 10vh;
+    padding: 1vh;
+    width: 40vh;
+  }
+  
+  .selectComponents {
+    margin-bottom: 1vh;
+    border-radius: 10px; 
+    width: 5vh;
+    height: 3vh;
+    color: red; 
+  } 

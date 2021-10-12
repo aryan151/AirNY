@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchListings } from '../../store/listings'; 
 import styles from './OneListing.module.css' 
+import AllReviews from './AllReviews'
+import NewReview from './NewReview'
 
 const OneListing = () => {  
 
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const { listingId } = useParams();
   const listings = useSelector(state => Object.values(state.listings))  
   const Home = listings.filter(listing => Number(listing.id) === Number(listingId)) 
@@ -39,7 +42,14 @@ const OneListing = () => {
           </div>
         </div>
       </div>
+      <div className={styles.reviewForm}>
+            <AllReviews listingId={listingId} />
+      </div>  
+      <div className={styles.reviewForm}>
+            {sessionUser ? <NewReview /> : ''}
       </div>
+      </div>
+      
     </div>
   )
 }
