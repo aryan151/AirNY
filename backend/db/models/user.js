@@ -1,6 +1,6 @@
 'use strict';
 const { Validator } = require('sequelize');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs'); 
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -31,35 +31,39 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   },
-    {
-      defaultScope: {
-        attributes: {
-          exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
-        },
+  {
+    defaultScope: { // To make sure password does not get sent to frontend
+      attributes: {
+        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
       },
-      scopes: {
-        currentUser: {
-          attributes: { exclude: ['hashedPassword'] },
-        },
-        loginUser: {
-          attributes: {},
-        },
+    },
+    scopes: {
+      currentUser: {
+        attributes: { exclude: ['hashedPassword'] },
       },
-    });
-
-  //these cannot be arrow functions* 
-  User.prototype.toSafeObject = function () { 
-    const { id, username, email } = this; 
-    return { id, username, email };
-  };
-
+      loginUser: {
+        attributes: {},
+      },
+    },
+  });
+  User.associate = function(models) {
+    User.hasMany(models.Listing, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true});
+    User.hasMany(models.Booking, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
+    User.hasMany(models.Review, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true});
+  };    
+      
+  User.prototype.toSafeObject = function() { 
+    const { id, username, email } = this; // (the user instance)
+    return { id, username, email };    
+  }; 
+  
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
-  };
+  }; 
 
   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
-  };
+  };     
 
   User.login = async function ({ credential, password }) {
     const { Op } = require('sequelize');
@@ -74,7 +78,7 @@ module.exports = (sequelize, DataTypes) => {
     if (user && user.validatePassword(password)) {
       return await User.scope('currentUser').findByPk(user.id);
     }
-  };
+  };       
 
   User.signup = async function ({ username, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
@@ -84,12 +88,8 @@ module.exports = (sequelize, DataTypes) => {
       hashedPassword,
     });
     return await User.scope('currentUser').findByPk(user.id);
-  };
+  }; 
 
-  User.associate = function (models) {
-    // associations can be defined here
-
-  };
+  
   return User;
-
-};
+}; 
