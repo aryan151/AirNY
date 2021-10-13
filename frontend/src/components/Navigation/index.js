@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-import CreateListingModal from '../CreateListingModal'
-import SignupFormModal from '../SignupFormModal'
-import Demo from './Demo'
+import CreateListingModal from '../CreateListingModal';
+import SignupFormModal from '../SignupFormModal';
+import Demo from './Demo';
+import Dashboard from './Dashboard';
 import './Navigation.css';
 
 
@@ -18,7 +19,8 @@ function Navigation({ isLoaded }) {
       <>
         <CreateListingModal/>  
         <NavLink to="/listings" className="Listings">Browse</NavLink>  
-        <ProfileButton user={sessionUser} />
+        {/* <Dashboard content='listings' /> */}
+        <ProfileButton user={sessionUser} /> 
       </>
     );
   } else {  
