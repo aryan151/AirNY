@@ -1,23 +1,34 @@
-import { useHistory } from 'react-router-dom';
-import './Home.css'
+import HomeHeader from "./HomeHeader";
+import HomeBK from './HomeBK'
+import HomeQN from './HomeQN'
+import HomeBR from './HomeBR'
+import HomeSI from './HomeSI'
+import HomeMan from './HomeMan'
 
+import './Homegrid.css'  
 function Home() {
-  const history = useHistory()
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history.push("/listings")
-  }
-
-  return (  
-    <div className="Homepage">  
-      <form className="FlexibleForm" onSubmit={handleSubmit}>
-        <div>test</div>
-        <button className="FlexibleButton" type="submit">Explore</button>
-      </form>
-      <p> Explore Nearby</p>
+ 
+  return (
+    <div className='layout__splash_container'>
+        <section className='layout__splash_header' >
+            <HomeHeader />
+        </section>
+        <section className='layout__splash_BK' >
+            <HomeBK />
+        </section>
+        <section className='layout__splash_QN' >
+            <HomeQN />
+        </section>
+        <section className='layout__splash_BR' >
+            <HomeBR />
+        </section>
+        <section className='layout__splash_SI' >
+            <HomeSI />
+        </section>
+        <section className='layout__splash_Man' >
+            <HomeMan />
+        </section>
     </div>
-  );
-}
-
+)
+};
 export default Home;    

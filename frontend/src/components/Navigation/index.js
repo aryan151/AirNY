@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <CreateListingModal/>  
-        <NavLink to="/listings" className="Listings">Browse</NavLink>  
+        <NavLink to="/listings" className="M-item">Browse</NavLink>  
         <ProfileButton user={sessionUser} />  
       </>
     );
@@ -44,10 +44,10 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="Navbar">
-      <div className="HomeDiv">
+      <div className="left">
         <NavLink exact to="/" className="HomeNav">Test</NavLink>
       </div>
-      <div className="Login">
+      <div className="right">
         {isLoaded && sessionLinks}
       </div>
     </div>

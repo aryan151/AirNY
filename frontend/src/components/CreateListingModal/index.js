@@ -8,7 +8,7 @@ function CreatePostModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className='message-button'>
+    <div className='M-item'>
       <p onClick={() => setShowModal(true)}>Host</p> 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

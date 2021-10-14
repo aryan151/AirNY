@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { useHistory } from 'react-router-dom'
-import CreateListingModal from '../CreateListingModal';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom' 
 
 function ProfileButton({ user }) {
   const history = useHistory() 
@@ -41,10 +39,11 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <i className="M-item" />
+        B
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
+        <ul className="MenuDrop"> 
           <li>
             Welcome, {user.username}
           </li>
