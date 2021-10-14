@@ -5,13 +5,23 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import CreateListingModal from '../CreateListingModal';
 import SignupFormModal from '../SignupFormModal';
+import { useState, useEffect } from 'react'; 
 import Demo from './Demo';
-import Dashboard from './Dashboard';
+import { useHistory } from 'react-router';
+import Dashboard from '../Dashboard'
 import './Navigation.css';
 
 
 function Navigation({ isLoaded }) {
+  const [sideOpen, setSideOpen] = useState(true)
   const sessionUser = useSelector(state => state.session.user);
+
+
+  useEffect(() => {
+    if(!sideOpen)
+    setSideOpen(!sideOpen)
+}, [sideOpen]) 
+
 
   let sessionLinks;  
   if (sessionUser) {
@@ -19,8 +29,7 @@ function Navigation({ isLoaded }) {
       <>
         <CreateListingModal/>  
         <NavLink to="/listings" className="Listings">Browse</NavLink>  
-        {/* <Dashboard content='listings' /> */}
-        <ProfileButton user={sessionUser} /> 
+        <ProfileButton user={sessionUser} />  
       </>
     );
   } else {  

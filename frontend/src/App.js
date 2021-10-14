@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Listings from "./components/Listings";
 import Home from "./components/Home";
 import OneListing from "./components/OneListing/OneListing";
+import Dashboard from './components/Dashboard'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,6 +32,9 @@ function App() {
           <Route exact path="/listings/:listingId"> 
             <OneListing />
           </Route>  
+          <Route exact path="/users/:userId">
+            <Dashboard />
+          </Route>
         </Switch>
       )}
     </>
