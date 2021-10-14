@@ -7,7 +7,7 @@
 // import styles from './Dashboard.module.css';
 // import ListingControl from './Listingcontrol'
 
-// function UserProfile() {
+// function Dashboard() {
 
 //   const dispatch = useDispatch();
 //   const { userId } = useParams();
@@ -41,4 +41,4 @@
 //   )
 // }
 
-// export default UserProfile;
+// export default Dashboard;

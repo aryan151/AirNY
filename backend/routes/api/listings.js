@@ -54,19 +54,19 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
   // Update 
   router.put('/:listingId(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const { name, description, price, address, borough, neighborhood, latitude, longitude, IMG1, IMG2, IMG3, IMG4, IMG5 } = req.body  
-    const listindId = parseInt(req.params.listindId, 10)
+    const listingId = parseInt(req.params.listingId, 10)
     const OneListing = await Listing.findOne({ where: { id: listindId } })
 
     await OneListing.update({name, description, price, address, borough, neighborhood, latitude, longitude})      
 
-    const listingpictures = await Image.findAll({ where: { listindId: listindId } })
+    const listingpictures = await Image.findAll({ where: { listingId: listingId } })
     await listingpictures[0].update({ url: IMG1 })
     await listingpictures[1].update({ url: IMG2 })
     await listingpictures[2].update({ url: IMG3 })
     await listingpictures[3].update({ url: IMG4 })
     await listingpictures[4].update({ url: IMG5 })    
 
-    const New = await Listing.findOne({ where: { id: listindId }, include: Image })  
+    const New = await Listing.findOne({ where: { id: listingId }, include: Image })  
     return res.json(New);
   }))
 

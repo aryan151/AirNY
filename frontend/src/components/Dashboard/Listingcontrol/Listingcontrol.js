@@ -1,54 +1,40 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import DeleteListingModal from '../DeleteListingModal/index';
-import styles from './UserProfile.module.css'; 
+import styles from '../Dashboard.module.css'    
+import { Link } from 'react-router-dom';
 
-const ListingComponent = ({ spot, userId }) => {
+const ListingComponent = ({ listing, userId }) => {
 
   const history = useHistory();
 
-  const [showListingModal, setShowListingModal] = useState(false)
-
-  const handleListingClick = (e) => {
-    e.preventDefault();
-    setShowListingModal(true)
-  }
-
+  
   return (
-    <div className={styles.buttonsDiv} key={spot?.id}>
-      <div>{spot?.name}</div>
-      <div className={styles.threeButtons}>
+    <div className={styles.buttonsDiv} key={listing?.id}>
+      <div>{listing?.name}</div>
+
+      <div className={styles.view}>
+        <Link key={listing.id} to={`/listings/${listing.id}`}> 
+        <img className={csss.imageCard} src={listing?.Images[0].url} alt='' />
+        </Link> 
+      </div>
+
+
+
         <div>
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            history.push(`/spots/${spot.id}`)
-          }}>
-            <button className={styles.buttons}
-              type="submit"
-            >
-              View
-            </button>
-          </form>
-        </div>
-        <div>
-          <button
-            onClick={() => history.push(`/spots/${spot.id}/edit`)}
-            className={styles.buttons}
-          >
-            Update
+          <button>
+            Update 
           </button>
         </div>
         <div>
-          <button
-            onClick={handleListingClick}
-            className={styles.buttons}
-          >
+          <button>
             Delete
           </button>
-          {showListingModal && <DeleteListingModal showListingModal={showListingModal} setShowListingModal={setShowListingModal} spotId={spot.id} userId={userId} />}
         </div>
-      </div>
+
+
     </div>
+
   )
 }
 
