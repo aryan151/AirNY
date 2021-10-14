@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Modal } from '../../../../context/Modal';  
 
-import editlisting from './editlisting';  
+import EditListing from './editlistingmodal';  
 
 
-function editlisting({listing}) { 
+function EditListingModal ({listing}) {   
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,11 +12,11 @@ function editlisting({listing}) {
       <p onClick={() => setShowModal(true)}>Edit</p>   
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <editlisting listing={listing} setShowModal={setShowModal} />
-        </Modal>  
+          <EditListingModal listing={listing} setShowModal={setShowModal} />
+        </Modal>   
       )}
-    </div>
+    </div>  
   );
 }
 
-export default editlisting;      
+export default EditListingModal;        

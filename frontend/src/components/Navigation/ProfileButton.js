@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useHistory } from 'react-router-dom' 
-
+import Dashboard from '../../components/Dashboard/Dashboard'
 function ProfileButton({ user }) {
   const history = useHistory() 
   const dispatch = useDispatch();
@@ -15,21 +15,22 @@ function ProfileButton({ user }) {
   } 
 
   const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
+    if (!showMenu) setShowMenu(true);
+    else setShowMenu(false);
+    
   };
   
-  useEffect(() => {
-    if (!showMenu) return;
+  // useEffect(() => {
+  //   if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
+  //   const closeMenu = () => {
+  //     setShowMenu(false);
+  //   };
 
-    document.addEventListener('click', closeMenu);
+  //   document.addEventListener('click', closeMenu);
   
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [showMenu]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -43,17 +44,18 @@ function ProfileButton({ user }) {
         B
       </button>
       {showMenu && (
-        <ul className="MenuDrop"> 
+      <div className="dropdown-menu">
+        <ul className="profile-dropdown"> 
+          <li>Welcome, {user.username}</li>
+          {/* <li><Dashboard/></li> */}
           <li>
-            Welcome, {user.username}
+              <button onClick={visitProfile}>My Profile</button>
           </li>
           <li>
-              <button onClick={visitProfile}>Dashboard</button>
-            </li> 
-          <li>
-            <button onClick={logout}>Log Out</button>
+              <button onClick={logout}>Log Out</button>
           </li>
         </ul>
+      </div>  
       )}
     </>
   );

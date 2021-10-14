@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
-import { putListing } from '../../../../store/listings';           
+import { useDispatch } from 'react-redux'; 
+import { putListing } from '../../../../store/listings';                
   
 const boroughs = ['Brooklyn', 'Bronx', 'Manhattan', 'Queens', 'Staten Island']    
 
-const editlisting = ({ setShowModal, listing }) => {     
+const EditListing = ({ setShowModal, listing }) => {     
 
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();   
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user);
-  const { id: userId } = sessionUser 
+
   const [name, setName] = useState(listing.name); 
   const [description, setDescription] = useState(listing.description); 
   const [price, setPrice] = useState(listing.price); 
@@ -55,7 +54,7 @@ const editlisting = ({ setShowModal, listing }) => {
 
     let NewListing = await dispatch(putListing(Home))   
     if (NewListing) {
-      history.push(`/users/${userId}`) 
+      history.push(`/listings/${listing.id}`)  
     }
   }
 
@@ -179,7 +178,7 @@ const editlisting = ({ setShowModal, listing }) => {
       <button
         type="submit"
         disabled={validationErrors.length > 0}
-        onClick={(e) => history.push(`/users/${userId}`)}
+        onClick={(e) => history.push(`/listings/${listing.id}}`)}
       >
         Update
       </button>
@@ -187,4 +186,4 @@ const editlisting = ({ setShowModal, listing }) => {
   )
 }
 
-export default editlisting;
+export default EditListing;  

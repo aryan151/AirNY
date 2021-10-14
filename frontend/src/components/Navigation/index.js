@@ -22,7 +22,7 @@ function Navigation({ isLoaded }) {
     setSideOpen(!sideOpen)
 }, [sideOpen]) 
 
-
+  
   let sessionLinks;  
   if (sessionUser) {
     sessionLinks = (
@@ -47,10 +47,11 @@ function Navigation({ isLoaded }) {
       <div className="left">
         <NavLink exact to="/" className="HomeNav">Test</NavLink>
       </div>
-      <div className="right">
+      <div className="Login">
         {isLoaded && sessionLinks}
       </div>
-    </div>
+    </div> 
+
   );
 }
 
