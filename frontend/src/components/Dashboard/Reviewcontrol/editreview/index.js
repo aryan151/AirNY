@@ -2,18 +2,18 @@ import React from 'react';
 import { Modal } from '../../../../context/Modal';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { putListing, fetchListings } from '../../../../store/listings'  
-import { fetchBookings } from '../../../../store/bookings';
+import { fetchListings } from '../../../../store/listings'  
+import { fetchBookings } from '../../../../store/bookings';   
 import { fetchReviews } from '../../../../store/reviews';  
-import styles from './edit.module.css'    
+import styles from '../../Dashboard.module.css'     
 
-function EditListingModal({ showEditListingModal, setShowEditListingModal, listingId, userId }) {
+function EditReviewModal({ showEditReviewModal, setShowEditReviewModal, reviewId, userId }) {
   const dispatch = useDispatch()  
-  const history = useHistory()  
+  const history = useHistory()   
     
-  const handleSubmit = async (e) => {      
+  const handleSubmit = async (e) => {         
     e.preventDefault();
-    setShowEditListingModal(false)
+    setShowEditReviewModal(false)  
     //await dispatch(putListing(listingId))    
     await dispatch(fetchListings());  
     await dispatch(fetchBookings());
@@ -23,15 +23,15 @@ function EditListingModal({ showEditListingModal, setShowEditListingModal, listi
 
   return (
     <>  
-      {showEditListingModal && ( 
-        <Modal onClose={() => setShowEditListingModal(false)}>
+      {showEditReviewModal && ( 
+        <Modal onClose={() => setShowEditReviewModal(false)}>
           <div className={styles.profileDeleteDivs}>
             <label>Edit Listing</label>
             <form onSubmit={handleSubmit}>
               <button type="submit"
                 className={styles.deleteListingButton}>EDIT TEST</button>
             </form>
-            <button onClick={() => setShowEditListingModal(false)} 
+            <button onClick={() => setShowEditReviewModal(false)} 
               className={styles.deleteListingButton}>Cancel</button>  
           </div>
         </Modal>
@@ -40,4 +40,4 @@ function EditListingModal({ showEditListingModal, setShowEditListingModal, listi
   );
 }
 
-export default EditListingModal;    
+export default EditReviewModal;      

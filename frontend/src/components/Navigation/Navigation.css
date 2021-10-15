@@ -72,14 +72,14 @@
     margin-top: 1vh;
   }
   
-  .profile-dropdown > li > button {
+  /* .profile-dropdown > li > button {
     height: 3vh;
     border-radius: 15px;
     border: none;
     background-color: darkblue;
     color: white;
     cursor: pointer;
-  }
+  } */
   
   .dropdown-menu {
     position: absolute;

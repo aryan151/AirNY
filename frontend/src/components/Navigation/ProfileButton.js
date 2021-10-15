@@ -43,13 +43,13 @@ function ProfileButton({ user }) {
         <i className="M-item" />
         B
       </button>
-      {showMenu && (
+      {showMenu && (  
       <div className="dropdown-menu">
         <ul className="profile-dropdown"> 
           <li>Welcome, {user.username}</li>
           {/* <li><Dashboard/></li> */}
           <li>
-              <button onClick={visitProfile}>My Profile</button>
+              <button onClick={visitProfile}>Dashboard</button>
           </li>
           <li>
               <button onClick={logout}>Log Out</button>

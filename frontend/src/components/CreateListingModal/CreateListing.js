@@ -6,7 +6,7 @@ import { postListing } from '../../store/listings';
 const boroughs = ['Brooklyn', 'Bronx', 'Manhattan', 'Queens', 'Staten Island']    
 
 const CreateListing = ({ setShowModal }) => {  
-
+  
   const dispatch = useDispatch(); 
   const history = useHistory();
   const [name, setName] = useState(''); 
@@ -24,7 +24,7 @@ const CreateListing = ({ setShowModal }) => {
   const [IMG5, setIMG5] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
 
-
+ 
 
   useEffect(() => {
     const errors = [];

@@ -10,6 +10,7 @@ import Demo from './Demo';
 import { useHistory } from 'react-router';
 import Dashboard from '../Dashboard'
 import './Navigation.css';
+import Search from './Search'
 
 
 function Navigation({ isLoaded }) {
@@ -24,9 +25,10 @@ function Navigation({ isLoaded }) {
 
   
   let sessionLinks;  
-  if (sessionUser) {
+  if (sessionUser) { 
     sessionLinks = (
       <>
+      <Search/>
         <CreateListingModal/>  
         <NavLink to="/listings" className="M-item">Browse</NavLink>  
         <ProfileButton user={sessionUser} />  

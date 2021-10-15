@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { fetchListings } from '../../store/listings';
 import csss from './Listings.module.css'  
 
-const Listings  = () => {   
-
+const Listings  = () => {    
+  
   const dispatch = useDispatch();
   const listings = useSelector(state => Object.values(state.listings)); 
   console.log(listings)  

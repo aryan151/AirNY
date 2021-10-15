@@ -10,11 +10,19 @@ const Bookingcontrol = ({ booking, userId }) => {
   return (
     <div className={styles.buttonsDiv} key={booking?.id}>
       <div onClick={() => history.push(`/listings/${booking.Listing.id}`)}>
-        <div>Where - {booking?.Listing?.name}</div>
+        <div>Listing - {booking?.Listing?.name}</div>
         <div>From - {booking?.startTime}</div>
         <div>To - {booking?.endTime}</div>
       </div>
       <div className={styles.threeButtons}> 
+      <div>
+          <button 
+            className={styles.buttons}
+          >
+            Edit  
+          </button>
+    
+        </div>
         <div>
           <button 
             className={styles.buttons}
