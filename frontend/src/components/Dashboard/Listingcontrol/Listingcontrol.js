@@ -9,23 +9,16 @@ const ListingControl= ({ listing, userId }) => {
   const history = useHistory();
 
   
-  return (
+  return (       
     <div className={styles.buttonsDiv} key={listing?.id}>
+      <img className={styles.imageCard} src={listing?.Images[0].url} alt='' 
+      onClick={(e) => {
+        e.preventDefault();
+        history.push(`/listings/${listing.id}`)
+      }}/>
       <div>{listing?.name}</div>
 
       <div className={styles.threeButtons}>
-        <div>
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            history.push(`/listings/${listing.id}`)
-          }}>
-            <button className={styles.buttons}
-              type="submit"
-            >
-              View
-            </button>
-          </form>
-        </div>  
         <div>
         <EditListingModal listing={listing}/>   
         </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal } from '../../../../context/Modal';  
 
-import deletelisting from './editlisting';  
+import deletelisting from './editlisting';    
 
 
 function deleteListing({listing}) { 

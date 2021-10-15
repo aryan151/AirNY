@@ -16,13 +16,25 @@
     overflow-y: scroll;
     margin-top: 2vh;
   }
-  
+
+  .imageCard {
+   width: 15vw;
+   height: 15vh;
+  }
+
+  .imageCard:hover {
+    cursor: pointer;
+  }
   .buttonsDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 1vh;
     align-items: center;
+  }
+
+  .buttonsDiv:hover {
+    cursor: pointer;
   }
   
   .threeButtons {
@@ -34,14 +46,4 @@
     margin-right: 0.5vw;
   }
   
-  .buttons {
-    outline: none;
-    color: white;
-    cursor: pointer;
-    background: none;
-    background-color: #FF385C;
-    border: none;
-    border-radius: 15px;
-    height: 3vh;
-    width: 4vw;
-  }
+  
