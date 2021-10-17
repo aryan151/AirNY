@@ -5,6 +5,7 @@ import { fetchListings } from '../../store/listings';
 import styles from './OneListing.module.css' 
 import AllReviews from './AllReviews'
 import NewReview from './NewReview'
+import Booking from './NewBooking/NewBooking';
 
 const OneListing = () => {  
 
@@ -47,6 +48,9 @@ const OneListing = () => {
       </div>  
       <div className={styles.reviewForm}>
             {sessionUser ? <NewReview /> : ''}
+      </div>
+      <div>
+        <Booking price={Home.price}/> 
       </div>
       </div>
       
