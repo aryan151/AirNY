@@ -27,7 +27,7 @@ router.get('/:listingId(\\d+)', asyncHandler(async (req, res) => {
 router.delete('/:listingId(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const listingId = parseInt(req.params.listingId, 10)
     const onelisting = await Listing.findOne({ where: { id: listingId } })
-    await listing.destroy()
+    await onelisting.destroy()
     return res.json(onelisting)  
 }))
 

@@ -41,10 +41,10 @@ export const putListing = (home) => async (dispatch) => {
     body: JSON.stringify(home)
   });
 
-  if (res.ok) {
+  if (res.ok) { 
     const updatedHome = await res.json()
     dispatch(updateListing(updatedHome))   
-    return updatedHome
+    return updatedHome 
   }
 }
 

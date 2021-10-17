@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import DeleteListingModal from './deletelisting';
 import EditListingModal from './EditListingModal';
 import styles from '../Dashboard.module.css'    
-import { Link } from 'react-router-dom';
   
 const ListingControl= ({ listing, userId }) => {
     
@@ -18,7 +17,7 @@ const ListingControl= ({ listing, userId }) => {
 
   const handleDeleteClick = (e) => {
     e.preventDefault();
-    setShowDeleteListingModal(true)  
+    setShowDeleteListingModal(true)    
   }
 
   return (       
