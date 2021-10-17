@@ -1,11 +1,26 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import styles from '../Dashboard.module.css';
-
-
+import DeleteBookingModal from './deletebooking'
+import EditBookingModal from './editbooking' 
+import styles from '../Dashboard.module.css'    
+  
 const Bookingcontrol = ({ booking, userId }) => {
   
-  const history = useHistory();  
+
+  const history = useHistory();
+  const [showDeleteBookingModal, setShowDeleteBookingModal] = useState(false)    
+  const [showEditBookingModal, setShowEditBookingModal ] = useState(false)
+
+  const handleEditClick = (e) => {
+    e.preventDefault();  
+    setShowEditBookingModal(true)    
+  }
+  
+  const handleDeleteClick = (e) => {  
+    e.preventDefault();
+    setShowDeleteBookingModal(true)    
+  }   
+ 
   
   return (
     <div className={styles.buttonsDiv} key={booking?.id}>
@@ -16,22 +31,33 @@ const Bookingcontrol = ({ booking, userId }) => {
       </div>
       <div className={styles.threeButtons}> 
       <div>
-          <button 
-            className={styles.buttons}
+        <button
+            onClick={handleEditClick} 
+            className={styles.buttons} 
           >
-            Edit  
+            Edit
           </button>
-    
+          {showEditBookingModal && <EditBookingModal  
+          showEditBookingModal={showEditBookingModal}   
+          setShowEditBookingModal={setShowEditBookingModal}  
+          bookingId={booking.id} userId={userId} />}  
         </div>
+
+
+
         <div>
-          <button 
-            className={styles.buttons}
+        <button
+            onClick={handleDeleteClick}
+            className={styles.buttons} 
           >
-            Delete  
+            Delete
           </button>
-    
+          {showDeleteBookingModal && <DeleteBookingModal 
+          showDeleteBookingModal={showDeleteBookingModal}    
+          setShowDeleteBookingModal={setShowDeleteBookingModal} 
+          bookingId={booking.id} userId={userId} />} 
         </div>
-      </div>
+      </div>  
     </div>
   )
 }

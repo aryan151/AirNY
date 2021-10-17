@@ -3,14 +3,15 @@ import { Modal } from '../../../../context/Modal';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import { fetchListings, deleteListing} from '../../../../store/listings'  
-import { fetchBookings } from '../../../../store/bookings';
-import { fetchReviews } from '../../../../store/reviews';  
-import styles from './delete.module.css'      
+import { fetchBookings, deleteBooking } from '../../../../store/bookings'  
+import { fetchReviews } from '../../../../store/reviews';       
+import { fetchListings } from '../../../../store/listings'  
+import styles from '../../Dashboard.module.css'        
+       
 
-function DeleteListingModal({ showDeleteListingModal, setShowDeleteListingModal, listingId, userId }) {
-  const dispatch = useDispatch()    
-  const history = useHistory()  
+function EditBookingModal({ showEditBookingModal, setShowEditBookingModal, bookingId, userId }) {
+  const dispatch = useDispatch()     
+  const history = useHistory()   
   const [validationErrors, setValidationErrors] = useState([]) 
   const [confirmD, setConfirmD] = useState('');    
 
@@ -24,18 +25,18 @@ function DeleteListingModal({ showDeleteListingModal, setShowDeleteListingModal,
   const handleSubmit = async (e) => {  
     e.preventDefault();
     if (validationErrors > 0) return; 
-    setShowDeleteListingModal(false)
-    await dispatch(deleteListing(listingId))
-    await dispatch(fetchListings());    
+    setShowEditBookingModal(false)
+    await dispatch(deleteBooking(bookingId))  
+    await dispatch(fetchListings());     
     await dispatch(fetchBookings());
     await dispatch(fetchReviews());
     history.push(`/users/${userId}`)      
   }  
 
-  return (
+  return (  
     <>
-      {showDeleteListingModal && ( 
-        <Modal onClose={() => setShowDeleteListingModal(false)}>
+      {showEditBookingModal && ( 
+        <Modal onClose={() => setShowEditBookingModal(false)}>
           <div className={styles.profileDeleteDivs}>
             <label>Type 'DELETE' to Confirm Deletion</label>
             <form onSubmit={handleSubmit}>
@@ -50,13 +51,13 @@ function DeleteListingModal({ showDeleteListingModal, setShowDeleteListingModal,
             <button type="submit"   disabled={validationErrors.length > 0}
                 className={styles.deleteListingButton}>This Action Cannot be Reversed</button>
             </form>
-            <button onClick={() => setShowDeleteListingModal(false)} 
+            <button onClick={() => setShowEditBookingModal(false)} 
               className={styles.deleteListingButton}>Cancel</button>  
-          </div>
+          </div>  
         </Modal>
       )}
     </>
   );
 }
 
-export default DeleteListingModal;  
+export default EditBookingModal;    
