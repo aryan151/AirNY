@@ -55,7 +55,7 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
   router.put('/:listingId(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const { name, description, price, address, borough, neighborhood, latitude, longitude, IMG1, IMG2, IMG3, IMG4, IMG5 } = req.body  
     const listingId = parseInt(req.params.listingId, 10)
-    const OneListing = await Listing.findOne({ where: { id: listindId } })
+    const OneListing = await Listing.findOne({ where: { id: listingId } })
 
     await OneListing.update({name, description, price, address, borough, neighborhood, latitude, longitude})      
 

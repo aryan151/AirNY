@@ -15,8 +15,8 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
 
 // POST /api/bookings 
 router.post('/', requireAuth, asyncHandler(async (req, res) => {
-  const { listingId, userId, startDate, endDate } = req.body
-  const newBooking = await Booking.create({ listingId, userId, startDate, endDate})
+  const { listingId, userId, startTime, endTime } = req.body
+  const newBooking = await Booking.create({ listingId, userId, startTime, endTime})
   return res.json(newBooking)     
 }))
 
@@ -26,7 +26,7 @@ router.put('/:bookingId', requireAuth, asyncHandler(async (req, res) => {
   const { userId, listingId, startTime, endTime } = req.body
   const bookingId = parseInt(req.params.bookingId, 10)
   const booking = await Booking.findOne({ where: { id: bookingId } })
-  await booking.update({ userId, listingId, startDate, endDate })  
+  await booking.update({ userId, listingId, startTime, endTime })    
   return res.json(booking)  
 }))
 

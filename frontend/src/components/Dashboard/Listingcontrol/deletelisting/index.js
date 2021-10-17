@@ -9,8 +9,7 @@ import styles from './delete.module.css'
 
 function DeleteListingModal({ showDeleteListingModal, setShowDeleteListingModal, listingId, userId }) {
   const dispatch = useDispatch()  
-  const history = useHistory()
-    
+  const history = useHistory() 
   const handleSubmit = async (e) => {  
     e.preventDefault();
     setShowDeleteListingModal(false)
