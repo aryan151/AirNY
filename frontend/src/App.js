@@ -7,7 +7,6 @@ import Listings from "./components/Listings";
 import Home from "./components/Home";
 import OneListing from "./components/OneListing/OneListing";
 import Dashboard from './components/Dashboard'
-import SearchResults from "./components/SearchResults/SearchResults";
 import Footer from './components/Footer'
 function App() {
   const dispatch = useDispatch();
@@ -29,10 +28,7 @@ function App() {
           </Route>  
           <Route exact path="/listings/:listingId"> 
             <OneListing />
-          </Route>  
-          <Route exact path="/listings/search">
-            <SearchResults/>
-          </Route>
+          </Route> 
           <Route exact path="/users/:userId">
             <Dashboard />
           </Route> 
