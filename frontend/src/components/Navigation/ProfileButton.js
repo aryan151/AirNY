@@ -6,6 +6,7 @@ import Dashboard from '../../components/Dashboard/Dashboard'
 import {fetchListings} from '../../store/listings'
 import {fetchBookings} from '../../store/bookings'
 import {fetchReviews} from '../../store/reviews'
+
 function ProfileButton({ user }) {
   const history = useHistory() 
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-  };
+  }; 
  
   return (
     <>

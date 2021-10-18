@@ -17,7 +17,6 @@ const HomeSI = () => {
                         className={styles.header_text}
                     >
                         <h3>Staten Island</h3>
-                        <p>TEXTTEXTEXT</p> 
 
                     </div>
                 </div>

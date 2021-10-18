@@ -17,7 +17,6 @@ const HomeBK = () => {
                         className={styles.header_text}
                     >
                         <h3>Brooklyn</h3>
-                        <p>TEXTTEXTEXT</p>
 
                     </div>
                 </div>

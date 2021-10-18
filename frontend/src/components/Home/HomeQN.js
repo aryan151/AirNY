@@ -17,7 +17,6 @@ const HomeQN= () => {
                         className={styles.header_text}
                     >
                         <h3>Queens</h3>
-                        <p>TEXTTEXTEXT</p>
 
                     </div>
                 </div>

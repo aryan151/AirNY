@@ -2,6 +2,7 @@ import React from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import './Navigation.css' 
 
 function Demo() {
   const dispatch = useDispatch();
@@ -18,9 +19,9 @@ function Demo() {
     return dispatch(sessionActions.login({ credential, password }))
   }
 
-  return (
+  return ( 
     <form onSubmit={handleSubmit}>
-      <button className="demobutton" type="submit">Demo</button>
+      <p className="navele" onClick={handleSubmit}>Demo</p> 
     </form>  
   );
 }

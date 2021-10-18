@@ -1,6 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useSelector } from 'react-redux'; 
 import styles from './Home.module.css';
 
 
@@ -13,7 +12,7 @@ const HomeHeader = () => {
         history.push("/listings")
       } 
 
-    return (
+    return (  
         <div
             className={styles.header_outer_container}
         >
@@ -23,10 +22,8 @@ const HomeHeader = () => {
                 <div
                     className={styles.header_text} 
                 >
-                    <h2>Not sure where to go?</h2>
-                    <p>Perfect.</p>
-                <button  onClick={handleSubmit}  className="styles.FlexibleButton" type="submit">Explore</button>
-                       
+                    <h2>Not sure where to go?</h2>    
+                <button  onClick={handleSubmit}  className={styles.FlexibleButton} type="submit">Explore</button>       
                 </div>
             </div>
         </div>

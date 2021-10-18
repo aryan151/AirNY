@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Modal } from '../../context/Modal';  
-
+import '../Navigation/Navigation.css'
 import CreateListing from './CreateListing';  
 
 
@@ -8,7 +8,7 @@ function CreatePostModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className='M-item'>
+    <div className='navele'>
       <p onClick={() => setShowModal(true)}>Host</p> 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

@@ -13,10 +13,7 @@ const HomeMan = () => {
                 <div
                     className={styles.header_text} 
                 >
-                        <h3>Manhattan</h3>
-                        <p>TEXTTEXTEXT</p>
-
-
+                        <h3>Manhattan</h3> 
                 </div>
             </div>
         </div>

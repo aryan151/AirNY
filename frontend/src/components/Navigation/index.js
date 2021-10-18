@@ -5,49 +5,71 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import CreateListingModal from '../CreateListingModal';
 import SignupFormModal from '../SignupFormModal';
+import * as sessionActions from '../../store/session'; 
 import { useState, useEffect } from 'react'; 
 import Demo from './Demo';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import Dashboard from '../Dashboard'
 import './Navigation.css';
-import Search from './Search'
+import Search from './Search' 
 
 
 function Navigation({ isLoaded }) {
+  const history = useHistory() 
+  const dispatch = useDispatch();
   const [sideOpen, setSideOpen] = useState(true)
   const sessionUser = useSelector(state => state.session.user);
 
+  const visitProfile = (e) => {
+    e.preventDefault();
+    history.push(`/users/${sessionUser.id}`)
+  } 
 
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+    history.push(`/`)
+  };
   useEffect(() => {
     if(!sideOpen)
     setSideOpen(!sideOpen)
 }, [sideOpen]) 
 
-  
+     
   let sessionLinks;  
   if (sessionUser) { 
     sessionLinks = (
       <>
-      <Search/>
-        <CreateListingModal/>  
-        <NavLink to="/listings" className="M-item">Browse</NavLink>  
-        <ProfileButton user={sessionUser} />  
+      <div className='header'> 
+        <ul>
+
+          <li><CreateListingModal/> </li>
+          <li><p className='navele' onClick={visitProfile}>Profile</p></li>
+          <li><p className='navele' onClick={logout}>Log Out</p> </li> 
+        </ul>  
+      </div>
       </>
     );
   } else {  
     sessionLinks = (
       <>
-        <Demo />
-        <LoginFormModal />
-        <SignupFormModal/> 
+      <div className='header'> 
+        <ul> 
+          <li><Demo /></li>
+          <li><LoginFormModal /></li>
+          <li><SignupFormModal/> </li>
+        </ul>     
+      </div>  
       </>
     );
   }
 
   return (
     <div className="Navbar">
-      <div className="left">
-        <NavLink exact to="/" className="HomeNav">Test</NavLink>
+      <div className="HomeDiv">
+        <NavLink exact to="/" className="HomeNav">Air NY</NavLink>
+        <Search/> 
       </div>
       <div className="Login">
         {isLoaded && sessionLinks}

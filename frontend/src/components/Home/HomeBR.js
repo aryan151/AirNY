@@ -8,7 +8,7 @@ const HomeBR = () => {
             className={styles.BR_outer_container}
         >
             <div
-                className={styles.BR_overlay_container}
+                className={styles.BR_overlay_container}  
             >
                 <div
                 className={styles.BR_inner_container}
@@ -17,7 +17,6 @@ const HomeBR = () => {
                         className={styles.header_text}
                     >
                         <h3>Bronx</h3>
-                        <p>TEXTTEXTEXT</p>
 
                     </div>    
                 </div>
