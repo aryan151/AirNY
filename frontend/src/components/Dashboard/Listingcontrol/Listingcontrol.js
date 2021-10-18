@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import DeleteListingModal from './deletelisting';
 import EditListingModal from './EditListingModal';
 import styles from '../Dashboard.module.css'    
+import '../DashMod.css'  
   
 const ListingControl= ({ listing, userId }) => {
     

@@ -1,49 +1,116 @@
-.profileContainer {
-    display: flex;
-    position: absolute;
-    top: 10vh;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 5vh;
-    z-index: -1;
-  }
-  
-  .smallDiv {
-    width: 40vw;
-    height: 20vh;
-    overflow-y: scroll;
-    margin-top: 2vh;
-  }
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .imageCard {
-   width: 15vw;
-   height: 15vh;
-  }
+body {
+  background: #fff;
+}
 
-  .imageCard:hover {
-    cursor: pointer;
-  }
-  .buttonsDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 1vh;
-    align-items: center;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  position: center;  
+  width: 800px;
+  height: 600px;
+  background: #f1f1f1;
+  margin: 100px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
 
-  .buttonsDiv:hover {
-    cursor: pointer;
-  }
+.buttonsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+  align-items: center;
+}
+
+.smallDiv {
+
+  height: 450px;
+  overflow-y: scroll;
+  margin-top: 2vh;
+}
+
+.imageCard {   
+ width: 15vw;
+ height: 15vh;
+}
+
+.imageCard:hover {
+  cursor: pointer;
+}
+
+.Alltabs {
+  display: flex;
+}
+
+
+.tabs {
+
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child){
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.tabsactive  {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.tabsactive::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+
+
+button {
+  border: none;
   
-  .threeButtons {
-    display: flex;
-    margin-right: 1vw;
-  }
-  
-  .threeButtons > div {
-    margin-right: 0.5vw;
-  }
-  
-  
+}
+.contenttabs {
+  flex-grow : 1;
+}
+.content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
