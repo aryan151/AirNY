@@ -54,13 +54,13 @@ function Booking ({price}) {
       }
 
     return (
+      <div className="bookingform" style={{display: 'flex', flexDirection: 'column'}}>  
       <div className="datepickersearch">   
         <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} minDate={moment().toDate()} />
   
-        <h2> Number of guests</h2>
-        <input min={0} defaultValue={2} max={7} type="number" />
         <button onClick={handleSubmit} disabled={(!startDate && !endDate)}>Book Now</button>
       </div> 
+      </div>
     );
   }
   

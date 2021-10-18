@@ -74,7 +74,7 @@ function Navigation({ isLoaded }) {
     <div className="Navbar">
       <div className="HomeDiv">
         <NavLink exact to="/" className="HomeNav">Air NY</NavLink>
-        <Search/> 
+        {/* <Search/>  */}
       </div>
       <div className="Login">
         {isLoaded && sessionLinks}

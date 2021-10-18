@@ -11,23 +11,13 @@
     margin-top: 2vh;
   }
   
-  /* .spotImage {
-    border-radius: 15px;
-    height: 50.5vh;
-    width: 60vh;
-    margin-top: 2vh;
-    margin-right: 0.4vw;
-  } */
-  
   .singleSpotContainer {
-    /* right: 0px; */
-    /* position: absolute; */
+
     width: 112.6vh;
     height: 50vh;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 5vh;
-    /* overflow: hidden; */
   }
   
   .twoImageContainers {
@@ -68,15 +58,12 @@
     border-radius: 0px 15px 0px 0px;
     height: 50.5vh;
     width: 60vh;
-    /* margin-top: 2vh; */
     margin-right: 0.8vh;
   }
   
   .spotImage3 {
-    /* border-radius: 15px; */
     height: 50.5vh;
     width: 60vh;
-    /* margin-top: 2vh; */
     margin-right: 0.8vh;
   }
   
@@ -84,7 +71,6 @@
     border-radius: 0px 0px 15px 0px;
     height: 50.5vh;
     width: 60vh;
-    /* margin-top: 2vh; */
     margin-right: 0.8vh;
   }
   
@@ -102,23 +88,50 @@
     margin-bottom: 0.5vh;
   }
   
-  .courtsAvailable {
+  .Summary {
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: 400; 
     margin-top: 2vh;
     width: 112.6vh;
     margin-bottom: 2vh;
   }
   
-  .midContainer {
+  .reviewContainer {
     display: flex;
-    flex-direction: row;
-    width: 112.6vh;
-    max-width: 112.6vh;
+    flex-direction: column;
+    width: 130vh;
+    max-width: 150vh;
     justify-content: space-between;
+    margin-top: 10px;;
   }
   
-  .reviewForm {
-    max-width: 60vh;
+  .allreviewpage {
+    overflow: scroll;
+    background-color: white;
+  }
+  .descpForm {
+    max-width: 60vh; 
     width: 60vh;
+  }
+  
+  .bookingform { 
+    flex-direction: column;
+    justify-content: center;  
+    background-color: white;
+  }
+
+  .reviewForm {
+    justify-content: center;
+  }
+
+  .reviewText {
+    color: white
+  }
+  body {
+
+    background-image:
+    url("../Home/homeimgs/blackandwhite.jpeg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
   }

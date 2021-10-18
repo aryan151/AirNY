@@ -29,6 +29,12 @@
 }
 
 
+.layout__splash_FOOT
+{
+    grid-area: sp-FT;
+}
+
+
 
 .layout__splash_container
 {
@@ -40,5 +46,6 @@
         "sp-BK sp-QN"
         "sp-SI sp-BX"
         "sp-Man sp-Man"
+        "sp-FT sp-FT" 
     ;
 }

@@ -27,7 +27,7 @@ const Listings  = () => {
                 <div className={styles.infoDiv}>
                   <div className={styles.nameDiv1}>{listing?.name}</div>
                   <div className={styles.nameDiv2}>{listing?.borough}, {listing?.neighborhood}</div>
-                  <div className={styles.priceDiv}>${listing?.price} per day</div> 
+                  <div className={styles.priceDiv}>${listing?.price} per day</div>
                 </div>
               </div>
             </NavLink>

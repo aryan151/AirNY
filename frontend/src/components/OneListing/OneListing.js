@@ -7,8 +7,8 @@ import AllReviews from './AllReviews'
 import NewReview from './NewReview'
 import Booking from './NewBooking/NewBooking';
 import MapContainer from '../Maps'      
-import Slideshow from './SlideShow';
-
+import Slideshow from './SlideShow';  
+  
 const OneListing = () => {  
    
   const dispatch = useDispatch();
@@ -19,8 +19,7 @@ const OneListing = () => {
   const imagepack = [Home[0]?.Images[0]?.url, Home[0]?.Images[1]?.url, Home[0]?.Images[2]?.url,
   Home[0]?.Images[3]?.url, Home[0]?.Images[4]?.url] 
   const [showSlides, setShowSlides] = useState(false)     
-
-
+  const [showBooking, setShowBooking] = useState(false) 
   const handleSlides = (e) => { 
     e.preventDefault();
     setShowSlides(true)  
@@ -29,10 +28,10 @@ const OneListing = () => {
 
   useEffect(() => {
     dispatch(fetchListings());
-  }, [dispatch]);
+  }, [dispatch]);  
 
   return (
-    <div className={styles.frost}> 
+    <div className={styles.frost}>   
     <div className={styles.singleSpot}>
       <div className={styles.nameSpot}>
         <h2 className={styles.courtName}>{Home[0] && Home[0]?.name}</h2>
@@ -57,9 +56,9 @@ const OneListing = () => {
       </div>
       <div>
         <button
-            onClick={handleSlides} 
+            onClick={handleSlides}   
             className={styles.buttons}  
-          >
+          >   
           Gallery
           </button>  
           {showSlides && <Slideshow    
@@ -67,22 +66,29 @@ const OneListing = () => {
           setShowSlides={setShowSlides}   
           images={imagepack} listingId={listingId}/>}    
         </div> 
-      <div className={styles.reviewForm}>
-            <AllReviews listingId={listingId} />
+
+      <div className={styles.Summary} hidden={showBooking} onClick={() => setShowBooking(true)}>{`Bookings are avalible!`}</div>
+      {showBooking && <div className={styles.midContainer}>  
+         <div  hideForm={() => setShowBooking(false)}>
+          <Booking /> 
+        </div>
+      </div> }
+      <hr/>
+      <div className={styles.reviewContainer}>
+          <div className={styles.allreviewpage}>
+              <AllReviews listingId={listingId} /> 
+          </div>
+          <div className={styles.reviewForm}>
+              {sessionUser ? <NewReview /> : ''} 
+          </div>
       </div>  
-      <div className={styles.reviewForm}>
-            {sessionUser ? <NewReview /> : ''}
-      </div>
-      <div>
-        <Booking price={Home.price}/> 
-      </div>
       <div className={styles.singleSpotContainer}>
         <MapContainer listings={Home} />
       </div>
       </div>
       
     </div>
-  )
+  )    
 }
 
 export default OneListing; 
