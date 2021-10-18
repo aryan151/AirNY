@@ -7,6 +7,7 @@ import reviewsReducer from "./reviews";
 import { listingControlModalReducer, reviewControlModalReducer, bookingControlModalReducer } from "./controls";
 import bookingsReducer from './bookings' 
 import mapsReducer from './maps'
+import searchReducer from "./search";
    
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   reviewControl: reviewControlModalReducer,
   bookingControl: bookingControlModalReducer,
   bookings: bookingsReducer,
-  maps: mapsReducer
+  maps: mapsReducer,
+  search: searchReducer
 }); 
 
 let enhancer;

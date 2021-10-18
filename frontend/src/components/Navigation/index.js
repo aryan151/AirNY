@@ -25,6 +25,10 @@ function Navigation({ isLoaded }) {
     e.preventDefault();
     history.push(`/users/${sessionUser.id}`)
   } 
+  const browselist = (e) => {
+    e.preventDefault();
+    history.push(`/listings`) 
+  } 
 
   const logout = (e) => {
     e.preventDefault();
@@ -43,7 +47,7 @@ function Navigation({ isLoaded }) {
       <>
       <div className='header'> 
         <ul>
-
+          <li><p className='navele' onClick={browselist}>Browse</p> </li> 
           <li><CreateListingModal/> </li>
           <li><p className='navele' onClick={visitProfile}>Profile</p></li>
           <li><p className='navele' onClick={logout}>Log Out</p> </li> 
@@ -56,6 +60,7 @@ function Navigation({ isLoaded }) {
       <>
       <div className='header'> 
         <ul> 
+        <li><p className='navele' onClick={browselist}>Browse</p> </li> 
           <li><Demo /></li>
           <li><LoginFormModal /></li>
           <li><SignupFormModal/> </li>

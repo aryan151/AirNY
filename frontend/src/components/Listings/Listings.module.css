@@ -1,71 +1,116 @@
-  .spotContainer {
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    padding-left: 10vw;
+.searchContainer {
+  display: flex;
+  position: absolute;
+  top: 10vh;
+  width: 98vw;
+  height: 90vh;
+  z-index: -1;
+  margin-left: 2vw;
+}
 
-    }
-    
-    .imageCard {
-      border-radius: 10px;
-      height: 300px;
-      width: 300px;
-    }
-    
-    .aCard {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: rgba(0,0,0,0.7);
-    }
-    
-    .nameDiv1 {
-      width: 300px;
-      display: flex;
-      text-decoration: none;
-      font-weight: bold;
-      padding-top: 0.5vh;
-      margin-bottom: 0.3vh;
-    }
-    
-    .nameDiv2 {
-      width: 300px;
-      display: flex;
-      text-decoration: none;
-      font-size: 0.8rem;
-    }
-    
-    .priceDiv {
-      width: 300px;
-      display: flex;
-      text-decoration: none;
-      font-size: 1rem;
-      margin-bottom: 0.2vh;
-    }
-    
-    .numberSpots {
-      top: 10vh;
-      position: absolute;
-    }
-    
-    .spotsDescription {
-      padding-left: 3vw;
-      height: 5vh;
-      display: flex;
-      align-items: center;
-      /* z-index: -1; */
-      padding-bottom: 2vh;
-      margin-top: 2vh;
-    }
-     
-    .spotsPage {
-      position: absolute;
-      top: 10vh;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
+.courtDiv {
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.spotCard {
+  width: 90%;
+  display: flex;
+  border-bottom: 1px solid rgba(0,0,0,0.7);
+  margin-bottom: 2vh;
+}
+
+.spotContainer {
+  width: 45%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.mapsContainer {
+  right: 0px;
+  position: absolute;
+  width: 55%;
+  height: 100%;
+}
+
+.imageCard {
+  border-radius: 10px;
+  height: 40vh;
+  width: 45vh;
+}
+
+.aCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(0,0,0,0.7);
+  padding-bottom: 2vh;
+  height: 100%;
+}
+
+.nameDiv {
+  /* display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start; */
+  height: 40vh;
+  padding-left: 1vw;
+}
+
+.nameDiv1 {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-weight: bold;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
+
+.nameDiv2 {
+  width: 300px;
+  display: flex;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.priceDiv {
+  width: 300px;
+  display: flex;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 0.2vh;
+}
+
+.ratingDiv {
+  width: 300px;
+  display: flex;
+  /* align-items: flex-end; */
+  /* margin-top: 25vh; */
+  font-size: 1rem;
+  height: 20vh;
+  /* display: flex;
+  align-items: flex-end; */
+  margin-top: 15vh;
+}
+
+.ratingtextDiv {
+  margin-left: 0.2vw;
+  font-size: 1rem;
+  font-weight: 300;
+  height: 20vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.infoDiv {
+  height: 20vh;
+}

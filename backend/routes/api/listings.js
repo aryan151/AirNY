@@ -70,4 +70,10 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
     return res.json(New);
   }))
 
+  router.post('/search', asyncHandler(async (req, res) => {  
+    const { searchInput: search } = req.body  
+    const Searchresults = await Listing.findAll({ where: { borough: search }, include: [Review, Image] })
+    return res.json(Searchresults)   
+  }))
+
   module.exports = router;     
