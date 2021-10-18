@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { fetchReviews, postReview } from '../../../store/reviews';
 import styles from './NewReview.module.css'  
-
+ 
 const NewReview = () => {   
   const dispatch = useDispatch();
   const history = useHistory();

@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const SET_REVIEWS = 'reviews/setReviews'
 const ADD_REVIEW = 'reviews/addReview'
+const UPDATE_REVIEW = 'reviews/updateReview'
 const REMOVE_REVIEW = 'reviews/removeReview'
 
 const initialState = {};  
@@ -17,6 +18,11 @@ const addReview = (review) => ({
   review
 })
 
+const updateReview = (review) => ({
+  type: UPDATE_REVIEW,
+  review
+})
+
 const removeReview = (reviewId) => ({
   type: REMOVE_REVIEW,
   reviewId
@@ -28,7 +34,19 @@ export const fetchReviews = () => async (dispatch) => {
   const reviews = await res.json();
   dispatch(setReviews(reviews))
 }
- 
+
+export const changeReview = (review) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${review.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(review) 
+  })
+
+  if (res.ok) {
+    const updatedReview = await res.json()
+    dispatch(updateReview(updatedReview)) 
+    return updatedReview 
+  }
+}
 export const postReview = (review) => async (dispatch) => {
   const res = await csrfFetch('/api/reviews', {
     method: 'POST',

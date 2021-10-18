@@ -16,9 +16,19 @@ router.post('/', requireAuth, asyncHandler(async (req, res) => {
   const { userId, listingId, description, rating } = req.body
   const newReview = await Review.create({ userId, listingId, description, rating })
   return res.json(newReview)
+
+
+}))
+// PUT /api/reviews/:reviewId
+router.delete('/:reviewId', requireAuth, asyncHandler(async (req, res) => {
+  const { userId, listingId, description, rating } = req.body 
+  const reviewId = parseInt(req.params.reviewId, 10)
+  const review = await Review.findOne({ where: { id: reviewId } })
+  await review.update({userId, listingId, description, rating})
+  return res.json({ review }) 
 }))
 
-// DELETE /api/reviews/:reviewId
+// DELETE /api/reviews/:reviewId  
 router.delete('/:reviewId', requireAuth, asyncHandler(async (req, res) => {
   const reviewId = parseInt(req.params.reviewId, 10)
   const review = await Review.findOne({ where: { id: reviewId } })

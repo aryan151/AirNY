@@ -39,12 +39,12 @@ const Reviewcontrol = ({ review, userId }) => {
             onClick={handleEditClick} 
             className={styles.buttons} 
           >
-            Edit
+            Update
           </button>  
           {showEditReviewModal && <EditReviewModal    
           showEditReviewModal={showEditReviewModal}     
           setShowEditReviewModal={setShowEditReviewModal} 
-          reviewId={review.id} userId={userId} />}  
+          reviewId={review.id} userId={userId} review={review} />}  
         </div>
 
 
