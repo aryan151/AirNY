@@ -3,11 +3,18 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { useHistory } from 'react-router-dom' 
 import Dashboard from '../../components/Dashboard/Dashboard'
+import {fetchListings} from '../../store/listings'
+import {fetchBookings} from '../../store/bookings'
+import {fetchReviews} from '../../store/reviews'
 function ProfileButton({ user }) {
   const history = useHistory() 
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  
+  useEffect(() => { 
+    dispatch(fetchListings());  
+    dispatch(fetchBookings());
+    dispatch(fetchReviews());
+  }, [dispatch])
 
   const visitProfile = (e) => {
     e.preventDefault();
@@ -36,7 +43,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
-
+ 
   return (
     <>
       <button onClick={openMenu}>
@@ -44,6 +51,7 @@ function ProfileButton({ user }) {
         B
       </button>
       {showMenu && (  
+
       <div className="dropdown-menu">
         <ul className="profile-dropdown"> 
           <li>Welcome, {user.username}</li>

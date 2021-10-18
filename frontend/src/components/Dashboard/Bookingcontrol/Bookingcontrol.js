@@ -19,8 +19,8 @@ const Bookingcontrol = ({ booking, userId }) => {
   const handleDeleteClick = (e) => {  
     e.preventDefault();
     setShowDeleteBookingModal(true)    
-  }   
- 
+  }      
+  
   
   return (
     <div className={styles.buttonsDiv} key={booking?.id}>
@@ -35,12 +35,12 @@ const Bookingcontrol = ({ booking, userId }) => {
             onClick={handleEditClick} 
             className={styles.buttons} 
           >
-            Edit
+            Update 
           </button>
           {showEditBookingModal && <EditBookingModal  
           showEditBookingModal={showEditBookingModal}   
           setShowEditBookingModal={setShowEditBookingModal}  
-          bookingId={booking.id} userId={userId} />}  
+          bookingId={booking.id} userId={userId} booking={booking}/>}  
         </div>
 
 

@@ -20,17 +20,28 @@ function EditListingModal({ showEditListingModal, setShowEditListingModal, listi
     await dispatch(fetchReviews());
     history.push(`/users/${userId}`)      
   }
-
+  
   return (
     <>  
       {showEditListingModal && ( 
         <Modal onClose={() => setShowEditListingModal(false)}>
+
+
+
           <div className={styles.profileDeleteDivs}>
             <label>Edit Listing</label>
+
+ 
+            
             <form onSubmit={handleSubmit}>
               <button type="submit"
                 className={styles.deleteListingButton}>EDIT TEST</button>
             </form>
+
+
+
+
+
             <button onClick={() => setShowEditListingModal(false)} 
               className={styles.deleteListingButton}>Cancel</button>  
           </div>

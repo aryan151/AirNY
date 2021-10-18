@@ -1,5 +1,5 @@
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file 
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css'; 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,7 +10,7 @@ import moment from 'moment';
 function Booking ({price}) {
     const dispatch = useDispatch();  
     const { listingId } = useParams();
-    const sessionUser = useSelector(state => state?.session?.user); 
+    const sessionUser = useSelector(state => state?.session?.user);   
     let userId;   
     
 
@@ -39,7 +39,7 @@ function Booking ({price}) {
             alert('Please log in or sign up to make a reservation')
             return;
           }
-          
+           
         const booking = {
           userId,
           listingId,
