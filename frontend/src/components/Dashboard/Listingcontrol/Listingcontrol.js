@@ -28,7 +28,7 @@ const ListingControl= ({ listing, userId }) => {
         history.push(`/listings/${listing.id}`)
       }}/>
  
-      <div className={styles.threeButtons}>
+      <div className={styles.threeButtons}> 
   
 
       <div>
@@ -36,13 +36,13 @@ const ListingControl= ({ listing, userId }) => {
             onClick={handleEditClick} 
             className={styles.buttons} 
           >
-            Edit
+            Update
           </button>
           {showEditListingModal && <EditListingModal  
           showEditListingModal={showEditListingModal}   
           setShowEditListingModal={setShowEditListingModal}  
-          listingId={listing.id} userId={userId} />}  
-        </div>
+          listingId={listing.id} userId={userId} listing={listing} />}  
+        </div> 
 
 
 

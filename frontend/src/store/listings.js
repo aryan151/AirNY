@@ -35,12 +35,12 @@ export const fetchListings = () => async (dispatch) => {
   //return listings
 };
 
-export const putListing = (home) => async (dispatch) => {
+export const changeListing = (home) => async (dispatch) => {
   const res = await csrfFetch(`/api/listings/${home.id}`, {
     method: 'PUT', 
     body: JSON.stringify(home)
   });
-
+  
   if (res.ok) { 
     const updatedHome = await res.json()
     dispatch(updateListing(updatedHome))   
