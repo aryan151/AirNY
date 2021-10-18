@@ -6,6 +6,7 @@ import styles from './OneListing.module.css'
 import AllReviews from './AllReviews'
 import NewReview from './NewReview'
 import Booking from './NewBooking/NewBooking';
+import MapContainer from '../Maps'  
 
 const OneListing = () => {  
 
@@ -51,6 +52,9 @@ const OneListing = () => {
       </div>
       <div>
         <Booking price={Home.price}/> 
+      </div>
+      <div className={styles.singleSpotContainer}>
+        <MapContainer listings={Home} />
       </div>
       </div>
       
