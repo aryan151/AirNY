@@ -20,8 +20,17 @@
 }
  
 #modal-content {
-  position: absolute;
-  background-color:white;
+  width: 450px; 
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff30;
+  backdrop-filter: blur(20px);
+  border: 2px solid #ffffff30;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px #303e5c69;
 }
 
 #modal-content > * {
