@@ -6,11 +6,10 @@ import Navigation from "./components/Navigation";
 import Listings from "./components/Listings";
 import Home from "./components/Home";
 import OneListing from "./components/OneListing/OneListing";
-import Dashboard from './components/Dashboard'
-import Footer from './components/Footer'
+import Dashboard from './components/Dashboard' 
 function App() {
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);   
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);

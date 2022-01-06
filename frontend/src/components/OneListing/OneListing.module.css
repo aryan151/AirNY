@@ -127,11 +127,3 @@
   .reviewText {
     color: white
   }
-  body {
-
-    background-image:
-    url("../Home/homeimgs/blackandwhite.jpeg");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-  }
